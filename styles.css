@@ -1,0 +1,99 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('brick-wall.jpg') center/cover no-repeat;
+    background-size: 200% 200%;
+    perspective: 1000px;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border: 10px solid #333;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, #ddd 100%);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.5);
+    transform: rotateX(20deg);
+}
+
+/* Keep other CSS as is */
+
+
+.number {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateY(-120px) rotate(calc(var(--i) * -30deg));
+}
+.number:nth-child(1) { --i: 0; }
+.number:nth-child(2) { --i: 1; }
+.number:nth-child(3) { --i: 2; }
+.number:nth-child(4) { --i: 3; }
+.number:nth-child(5) { --i: 4; }
+.number:nth-child(6) { --i: 5; }
+.number:nth-child(7) { --i: 6; }
+.number:nth-child(8) { --i: 7; }
+.number:nth-child(9) { --i: 8; }
+.number:nth-child(10) { --i: 9; }
+.number:nth-child(11) { --i: 10; }
+.number:nth-child(12) { --i: 11; }
+
+.hand {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 50%; /* Rotate from the base of the hand */
+    background: #333;
+    border-radius: 6px;
+    z-index: 5;
+    transition: transform 0.05s ease-in-out;
+}
+
+.hour-hand {
+    height: 6px;
+    width: 30%;
+    background: #333;
+}
+
+.minute-hand {
+    height: 4px;
+    width: 45%;
+    background: #555;
+}
+
+.second-hand {
+    height: 2px;
+    width: 50%;
+    background: #d00;
+}
+
+.center-cap {
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+}
